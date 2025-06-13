@@ -1,0 +1,32 @@
+{
+  "name": "omicronenergyoss",
+  "version": "0.0.1",
+  "description": "OmicronEnergy Organization for OpenSCD",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "generate-status": "node ./scripts/generate-status.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OMICRONEnergyOSS/.github.git"
+  },
+  "keywords": [
+    "Omicron",
+    "OmicronEnergy",
+    "OpenSCD",
+    "IEC61850",
+    "SCL"
+  ],
+  "author": "OMICRON Electronics GmbH",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/OMICRONEnergyOSS/.github/issues"
+  },
+  "homepage": "https://github.com/OMICRONEnergyOSS/.github#readme",
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.12",
+    "node-fetch": "^2.7.0",
+    "typescript": "^5.8.3"
+  }
+}
