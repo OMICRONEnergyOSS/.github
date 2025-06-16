@@ -8,7 +8,7 @@ This is the home to all Omicron Energy managed OpenSCD Repositories.
 
 # 🔍 Repository Status Overview
 
-Last Updated: 6/16/2025, 3:13:52 PM
+Last Updated: 6/16/2025, 4:15:52 PM
 
 | 📘 Repo Name | ✅ Build Status | 🐛 v1.0 Issues | 🔁 PRs | 📦 Dependency Updates |
 |-------------|----------------|----------------|--------|------------------------|
@@ -18,8 +18,8 @@ Last Updated: 6/16/2025, 3:13:52 PM
 | | | _None_ | _None_ | |
 | oscd-ui | ✅ | 0 | 0 | 0 |
 | | | _None_ | _None_ | |
-| oscd-testing | ❔ | 0 | 1 | 0 |
-| | | _None_ | [chore: release 0.0.2](https://github.com/OMICRONEnergyOSS/oscd-testing/pull/3) | |
+| oscd-testing | ✅ | 0 | 0 | 0 |
+| | | _None_ | _None_ | |
 | oscd-shell | ✅ | 1 | 0 | 0 |
 | | | [docs: Theming - document the intended mapping from solarized variable names to MWC and MD variable names](https://github.com/OMICRONEnergyOSS/oscd-shell/issues/30) | _None_ | |
 
