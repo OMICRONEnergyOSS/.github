@@ -8,7 +8,7 @@ This is the home to all Omicron Energy managed OpenSCD Repositories.
 
 # 🔍 Repository Status Overview
 
-Last Updated: 6/24/2025, 11:11:19 AM
+Last Updated: 6/24/2025, 12:25:23 PM
 
 | 📘 Repo Name | ✅ Build Status | 🐛 v1.0 Issues | 🔁 PRs | 📦 Dependency Updates |
 |-------------|----------------|----------------|--------|------------------------|
@@ -18,10 +18,10 @@ Last Updated: 6/24/2025, 11:11:19 AM
 | | | _None_ | [chore: release 1.5.0](https://github.com/OMICRONEnergyOSS/oscd-editor/pull/8) | |
 | oscd-ui | ✅ | 0 | 0 | 0 |
 | | | _None_ | _None_ | |
-| oscd-testing | ✅ | 0 | 1 | 0 |
-| | | _None_ | [chore: release 0.0.5](https://github.com/OMICRONEnergyOSS/oscd-testing/pull/7) | |
-| oscd-shell | ✅ | 1 | 0 | 0 |
-| | | [docs: Theming - document the intended mapping from solarized variable names to MWC and MD variable names](https://github.com/OMICRONEnergyOSS/oscd-shell/issues/30) | _None_ | |
+| oscd-testing | ❌ | 0 | 1 | 0 |
+| | | _None_ | [chore: release 0.0.5](https://github.com/OMICRONEnergyOSS/oscd-testing/pull/8) | |
+| oscd-shell | ✅ | 2 | 0 | 0 |
+| | | [released zip file should be the bundle, not just the dist contents zipped.](https://github.com/OMICRONEnergyOSS/oscd-shell/issues/31)<br>[docs: Theming - document the intended mapping from solarized variable names to MWC and MD variable names](https://github.com/OMICRONEnergyOSS/oscd-shell/issues/30) | _None_ | |
 
 
 Thanks for visiting!
