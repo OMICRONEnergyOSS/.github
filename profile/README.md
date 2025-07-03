@@ -2,13 +2,9 @@
 
 This is the home to all Omicron Energy managed OpenSCD Repositories.
 
-# Architecture
-
-![Architecture](/assets/oscd-arch.png)
-
 # 🔍 Repository Status Overview
 
-Last Updated: 7/3/2025, 2:02:55 PM
+Last Updated: 7/3/2025, 2:05:04 PM
 
 | 📘 Repository | ✅ Build Status | 🐛 Issues | 🔁 PRs | 
 |-------------|----------------|----------------|--------|
@@ -26,4 +22,6 @@ Last Updated: 7/3/2025, 2:02:55 PM
 | [oscd-template-generator 🔗](https://github.com/OMICRONEnergyOSS/oscd-template-generator/issues/) | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-template-generator/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-template-generator)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-template-generator/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-template-generator)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-template-generator/pulls/) | 
 
 
-Thanks for visiting!
+# Architecture
+
+![Architecture](/assets/oscd-arch.png)
