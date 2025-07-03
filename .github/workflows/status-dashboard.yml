@@ -2,9 +2,12 @@ name: Generate Repository Status
 
 on:
   schedule:
-    - cron: "0 7-18 * * 1-5" # Every hour from 07:00 to 18:00, Monday to Friday
+    - cron: "0 6 * * 1-5" # Every hour from 07:00 to 18:00, Monday to Friday
 
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   generate-status:

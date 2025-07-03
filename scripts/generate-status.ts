@@ -4,93 +4,64 @@ import fetch from "node-fetch";
 const token = process.env.GH_TOKEN;
 const headers = { Authorization: `token ${token}` };
 
-const repos = [
-  "OMICRONEnergyOSS/oscd-api",
-  "OMICRONEnergyOSS/oscd-editor",
-  "OMICRONEnergyOSS/oscd-ui",
-  "OMICRONEnergyOSS/oscd-testing",
-  "OMICRONEnergyOSS/oscd-shell",
+const priorityRepos = [
+  "oscd-api",
+  "oscd-editor",
+  "oscd-shell",
+  "oscd-ui",
+  "oscd-test-utils",
 ];
+
+const getRepos = async () => {
+  const allRepos = await fetchJSON(
+    "https://api.github.com/orgs/OMICRONEnergyOSS/repos?per_page=100&type=public"
+  );
+  const oscdRepos = allRepos.filter((repo: any) =>
+    repo.name.startsWith("oscd-")
+  );
+
+  // Custom sort: priorityRepos first (in order), then the rest alphabetically
+  oscdRepos.sort((a: any, b: any) => {
+    const aIndex = priorityRepos.indexOf(a.name);
+    const bIndex = priorityRepos.indexOf(b.name);
+
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex; // Both in priority list, keep their order
+    }
+    if (aIndex !== -1) return -1; // a is priority, comes first
+    if (bIndex !== -1) return 1; // b is priority, comes first
+
+    // Neither in priority list, sort alphabetically
+    return a.name.localeCompare(b.name);
+  });
+
+  return oscdRepos;
+};
 
 async function fetchJSON(url: string) {
   const res = await fetch(url, { headers });
   return res.json();
 }
 
-async function getRepoStatus(repo: string) {
-  const [owner, name] = repo.split("/");
-
-  const [runs, issues, prs, alerts] = await Promise.all([
-    fetchJSON(`https://api.github.com/repos/${repo}/actions/runs`),
-    fetchJSON(
-      `https://api.github.com/repos/${repo}/issues?state=open&labels=v1.0`
-    ),
-    fetchJSON(`https://api.github.com/repos/${repo}/pulls?state=open`),
-    fetchJSON(`https://api.github.com/repos/${repo}/dependabot/alerts`),
-  ]);
-
-  let buildStatusRaw = runs.workflow_runs?.[0]?.conclusion ?? "no_runs";
-  let buildStatus = "";
-
-  switch (buildStatusRaw) {
-    case "success":
-      buildStatus = "✅";
-      break;
-    case "failure":
-      buildStatus = "❌";
-      break;
-    case "cancelled":
-      buildStatus = "🚫";
-      break;
-    case "in_progress":
-      buildStatus = "⏳";
-      break;
-    default:
-      buildStatus = "❔";
-  }
-
-  const v1Issues = issues.filter((i: any) => !i.pull_request);
-  const openPRs = prs;
-  const depUpdates = Array.isArray(alerts) ? alerts.length : 0;
-
-  return { name, repo, buildStatus, v1Issues, openPRs, depUpdates };
-}
-
 async function generateStatusTable() {
   const now = new Date().toLocaleString();
+  const repos = await getRepos();
   let table = `# 🔍 Repository Status Overview\n\nLast Updated: ${now}\n\n`;
 
-  table +=
-    "| 📘 Repo Name | ✅ Build Status | 🐛 v1.0 Issues | 🔁 PRs | 📦 Dependency Updates |\n";
-  table +=
-    "|-------------|----------------|----------------|--------|------------------------|\n";
+  table += "| 📘 Repository | ✅ Build Status | 🐛 Issues | 🔁 PRs | \n";
+  table += "|-------------|----------------|----------------|--------|\n";
 
   for (const repo of repos) {
-    const { name, buildStatus, v1Issues, openPRs, depUpdates } =
-      await getRepoStatus(repo);
+    const { name, full_name, html_url } = repo;
+
+    const project = `[${name} 🔗](${html_url}/issues/)`;
+    const buildStatus = `![Build Status](https://img.shields.io/github/actions/workflow/status/${full_name}/test.yml?branch=main)`;
+    const issuesBadgeLink = `![Issues](https://img.shields.io/github/issues/${full_name})<br>[Issues 🔗](${html_url}/issues/)`;
+    const pullRequests = `![Pull Requests](https://img.shields.io/github/issues-pr/${full_name})<br>[Pull Requests 🔗](${html_url}/pulls/)`;
+    // const dependabotStatus = `![Dependabot Status](https://img.shields.io/github/dependabot/status/${full_name})`;
 
     // Main summary row
-    table += `| ${name} | ${buildStatus} | ${v1Issues.length} | ${openPRs.length} | ${depUpdates} |\n`;
-
-    // Sub-row for issues and PRs
-    const issuesList = v1Issues.length
-      ? v1Issues
-          .map(
-            (i: any) =>
-              `[${i.title}](https://github.com/${repo}/issues/${i.number})`
-          )
-          .join("<br>")
-      : "_None_";
-    const prsList = openPRs.length
-      ? openPRs
-          .map(
-            (pr: any) =>
-              `[${pr.title}](https://github.com/${repo}/pull/${pr.number})`
-          )
-          .join("<br>")
-      : "_None_";
-
-    table += `| | | ${issuesList} | ${prsList} | |\n`;
+    table += `| ${project} | ${buildStatus} | ${issuesBadgeLink} | ${pullRequests} | \n`;
   }
 
   return table;
