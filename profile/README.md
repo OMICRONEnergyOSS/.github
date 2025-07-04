@@ -1,10 +1,11 @@
 # OMICRON Energy OSS
 
 This is the home to all Omicron Energy managed OpenSCD Repositories.
+Use the [Project Board](https://github.com/orgs/OMICRONEnergyOSS/projects/2) to see what is being currently worked on & what is in the pipeline.
 
 # 🔍 Repository Status Overview
 
-Last Updated: 7/4/2025, 7:19:45 AM
+Last Updated: 7/4/2025, 8:01:14 AM
 
 | 📘 Repository | ✅ Build Status | 🐛 Issues | 🔁 PRs | 
 |-------------|----------------|----------------|--------|
