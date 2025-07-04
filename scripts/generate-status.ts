@@ -54,7 +54,7 @@ async function generateStatusTable() {
   for (const repo of repos) {
     const { name, full_name, html_url } = repo;
 
-    const project = `[${name} 🔗](${html_url}/issues/)`;
+    const project = `<a href="${html_url}" target="_blank" rel="noopener">${name} 🔗</a>`;
     const buildStatus = `![Build Status](https://img.shields.io/github/actions/workflow/status/${full_name}/test.yml?branch=main)`;
     const issuesBadgeLink = `![Issues](https://img.shields.io/github/issues/${full_name})<br>[Issues 🔗](${html_url}/issues/)`;
     const pullRequests = `![Pull Requests](https://img.shields.io/github/issues-pr/${full_name})<br>[Pull Requests 🔗](${html_url}/pulls/)`;
