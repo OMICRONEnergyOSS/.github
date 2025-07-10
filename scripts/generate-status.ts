@@ -1,27 +1,46 @@
 import { readFileSync, writeFileSync } from "fs";
 import fetch from "node-fetch";
 
-const token = process.env.GH_TOKEN;
-const headers = { Authorization: `token ${token}` };
+type Repo = {
+  name: string;
+  full_name: string;
+  html_url: string;
+};
 
-const priorityRepos = [
-  "oscd-api",
-  "oscd-editor",
+type RepoSet = {
+  commonRepos: Repo[];
+  foundationRepos: Repo[];
+  menuPluginRepos: Repo[];
+  editorPluginRepos: Repo[];
+  backgroundPluginRepos: Repo[];
+  otherRepos: Repo[];
+};
+
+const token = process.env.GITHUB_TOKEN;
+const headers = { Authorization: `token ${token}` };
+const url =
+  "https://api.github.com/orgs/OMICRONEnergyOSS/repos?per_page=100&type=public";
+
+const commonRepoNames = ["oscd-api", "oscd-editor"];
+
+const foundationRepoNames = [
   "oscd-shell",
   "oscd-ui",
+  "oscd-edit-dialog",
   "oscd-test-utils",
 ];
 
 const getRepos = async () => {
-  const allRepos = await fetchJSON(
-    "https://api.github.com/orgs/OMICRONEnergyOSS/repos?per_page=100&type=public"
-  );
-  const oscdRepos = allRepos.filter((repo: any) =>
-    repo.name.startsWith("oscd-")
-  );
+  const priorityRepos = [...commonRepoNames, ...foundationRepoNames];
+  const res = await fetch(url, { headers });
+  const json = await res.json();
+  if (!Array.isArray(json)) {
+    console.log(`Unexpected Response: \n${JSON.stringify(json, null, 4)} `);
+    throw new Error("Failed to fetch repositories");
+  }
 
   // Custom sort: priorityRepos first (in order), then the rest alphabetically
-  oscdRepos.sort((a: any, b: any) => {
+  json.sort((a: Repo, b: Repo) => {
     const aIndex = priorityRepos.indexOf(a.name);
     const bIndex = priorityRepos.indexOf(b.name);
 
@@ -35,21 +54,13 @@ const getRepos = async () => {
     return a.name.localeCompare(b.name);
   });
 
-  return oscdRepos;
+  return json;
 };
 
-async function fetchJSON(url: string) {
-  const res = await fetch(url, { headers });
-  return res.json();
-}
-
-async function generateStatusTable() {
-  const now = new Date().toLocaleString();
-  const repos = await getRepos();
-  let table = `# 🔍 Repository Status Overview\n\nLast Updated: ${now}\n\n`;
-
-  table += "| 📘 Repository | ✅ Build Status | 🐛 Issues | 🔁 PRs | \n";
-  table += "|-------------|----------------|----------------|--------|\n";
+function generateStatusTable(heading: string, repos: Repo[] = []) {
+  let content = `\n## ${heading}
+  | 📘 Repository | ✅ Build Status | 🐛 Issues | 🔁 PRs |
+  |-------------|----------------|----------------|--------|\n`;
 
   for (const repo of repos) {
     const { name, full_name, html_url } = repo;
@@ -61,17 +72,60 @@ async function generateStatusTable() {
     // const dependabotStatus = `![Dependabot Status](https://img.shields.io/github/dependabot/status/${full_name})`;
 
     // Main summary row
-    table += `| ${project} | ${buildStatus} | ${issuesBadgeLink} | ${pullRequests} | \n`;
+    content += `| ${project} | ${buildStatus} | ${issuesBadgeLink} | ${pullRequests} | \n`;
   }
 
-  return table;
+  return content;
 }
 
 async function main() {
-  const template = readFileSync("README.template.md", "utf-8");
-  const statusTable = await generateStatusTable();
+  const now = new Date().toLocaleString();
+  const allRepos = await getRepos();
 
-  const output = template.replace("<!-- STATUS_TABLE -->", statusTable);
+  const template = readFileSync("README.template.md", "utf-8");
+
+  const { commonRepos, foundationRepos, menuPluginRepos, editorPluginRepos, backgroundPluginRepos, otherRepos } = allRepos.reduce((acc: RepoSet, repo: Repo) => {
+    if (commonRepoNames.includes(repo.name)) {
+      acc.commonRepos.push(repo);
+    } else if (foundationRepoNames.includes(repo.name)) {
+      acc.foundationRepos.push(repo);
+    } else if (repo.name.startsWith("oscd-menu-")) {
+      acc.menuPluginRepos.push(repo);
+    } else if (repo.name.startsWith("oscd-editor-")) {
+      acc.editorPluginRepos.push(repo);
+    } else if (repo.name.startsWith("oscd-background-")) {
+      acc.backgroundPluginRepos.push(repo);
+    } else {
+      acc.otherRepos.push(repo);
+    }
+    return acc;
+  }, {
+    commonRepos: [],
+    foundationRepos: [],
+    menuPluginRepos: [],
+    editorPluginRepos: [],
+    backgroundPluginRepos: [],
+    otherRepos: []
+  });
+
+  let content = `# Repository Status Overview
+
+    ${generateStatusTable(
+      "Common Repositories",commonRepos)}
+    ${generateStatusTable(
+      "Foundation Repositories",foundationRepos)}
+    ${generateStatusTable(
+      "Menu Plugin Repositories", menuPluginRepos)}
+    ${generateStatusTable(
+      "Editor Plugin Repositories",editorPluginRepos)}
+    ${generateStatusTable(
+      "Background Plugin Repositories",backgroundPluginRepos)}
+    ${generateStatusTable("Other Repositories",otherRepos)}
+
+    \n_Respository tables last generated: ${now}_
+  `;
+
+  const output = template.replace("<!-- STATUS_TABLE -->", content);
   writeFileSync("profile/README.md", output);
   console.log("README.md generated from template.");
 }
