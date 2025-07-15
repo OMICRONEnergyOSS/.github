@@ -38,6 +38,7 @@ Use the [Project Board](https://github.com/orgs/OMICRONEnergyOSS/projects/2) to 
   | 📘 Repository | ✅ Build Status | 🐛 Issues | 🔁 PRs |
   |-------------|----------------|----------------|--------|
 | <a href="https://github.com/OMICRONEnergyOSS/oscd-background-editv1" target="_blank" rel="noopener">oscd-background-editv1 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-background-editv1/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-background-editv1)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-background-editv1/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-background-editv1)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-background-editv1/pulls/) | 
+| <a href="https://github.com/OMICRONEnergyOSS/oscd-background-wizard-events" target="_blank" rel="noopener">oscd-background-wizard-events 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-background-wizard-events/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-background-wizard-events)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-background-wizard-events/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-background-wizard-events)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-background-wizard-events/pulls/) | 
 
     
 ## Other Repositories
@@ -51,7 +52,7 @@ Use the [Project Board](https://github.com/orgs/OMICRONEnergyOSS/projects/2) to 
 
 
     
-_Respository tables last generated: 7/15/2025, 6:33:48 AM_
+_Respository tables last generated: 7/15/2025, 9:35:52 AM_
   
 
 # Architecture
