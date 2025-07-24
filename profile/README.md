@@ -33,6 +33,7 @@ Use the [Project Board](https://github.com/orgs/OMICRONEnergyOSS/projects/2) to 
   | 📘 Repository | ✅ Build Status | 🐛 Issues | 🔁 PRs |
   |-------------|----------------|----------------|--------|
 | <a href="https://github.com/OMICRONEnergyOSS/oscd-editor-diff" target="_blank" rel="noopener">oscd-editor-diff 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-editor-diff/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-editor-diff)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-editor-diff/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-editor-diff)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-editor-diff/pulls/) | 
+| <a href="https://github.com/OMICRONEnergyOSS/oscd-editor-substation" target="_blank" rel="noopener">oscd-editor-substation 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-editor-substation/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-editor-substation)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-editor-substation/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-editor-substation)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-editor-substation/pulls/) | 
 
     
 ## Background Plugin Repositories
@@ -53,7 +54,7 @@ Use the [Project Board](https://github.com/orgs/OMICRONEnergyOSS/projects/2) to 
 
 
     
-_Respository tables last generated: 7/23/2025, 6:33:58 AM_
+_Respository tables last generated: 7/24/2025, 6:34:11 AM_
   
 
 # Architecture
