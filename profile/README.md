@@ -54,7 +54,7 @@ Use the [Project Board](https://github.com/orgs/OMICRONEnergyOSS/projects/2) to 
 
 
     
-_Respository tables last generated: 8/6/2025, 6:36:06 AM_
+_Respository tables last generated: 8/7/2025, 6:35:48 AM_
   
 
 # Architecture
