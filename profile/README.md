@@ -53,10 +53,11 @@ Use the [Project Board](https://github.com/orgs/OMICRONEnergyOSS/projects/2) to 
 | <a href="https://github.com/OMICRONEnergyOSS/.github" target="_blank" rel="noopener">.github 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/.github/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/.github)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/.github/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/.github)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/.github/pulls/) | 
 | <a href="https://github.com/OMICRONEnergyOSS/openscd-org-website" target="_blank" rel="noopener">openscd-org-website 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/openscd-org-website/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/openscd-org-website)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/openscd-org-website/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/openscd-org-website)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/openscd-org-website/pulls/) | 
 | <a href="https://github.com/OMICRONEnergyOSS/oscd-ce" target="_blank" rel="noopener">oscd-ce 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-ce/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-ce)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-ce/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-ce)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-ce/pulls/) | 
+| <a href="https://github.com/OMICRONEnergyOSS/oscd-gh-workflows" target="_blank" rel="noopener">oscd-gh-workflows 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-gh-workflows/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-gh-workflows)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-gh-workflows/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-gh-workflows)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-gh-workflows/pulls/) | 
 
 
     
-_Respository tables last generated: 8/14/2025, 6:33:07 AM_
+_Respository tables last generated: 8/15/2025, 6:32:29 AM_
   
 
 # Architecture
