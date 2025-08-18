@@ -84,45 +84,53 @@ async function main() {
 
   const template = readFileSync("README.template.md", "utf-8");
 
-  const { commonRepos, foundationRepos, menuPluginRepos, editorPluginRepos, backgroundPluginRepos, otherRepos } = allRepos.reduce((acc: RepoSet, repo: Repo) => {
-    if (commonRepoNames.includes(repo.name)) {
-      acc.commonRepos.push(repo);
-    } else if (foundationRepoNames.includes(repo.name)) {
-      acc.foundationRepos.push(repo);
-    } else if (repo.name.startsWith("oscd-menu-")) {
-      acc.menuPluginRepos.push(repo);
-    } else if (repo.name.startsWith("oscd-editor-")) {
-      acc.editorPluginRepos.push(repo);
-    } else if (repo.name.startsWith("oscd-background-")) {
-      acc.backgroundPluginRepos.push(repo);
-    } else {
-      acc.otherRepos.push(repo);
+  const {
+    commonRepos,
+    foundationRepos,
+    menuPluginRepos,
+    editorPluginRepos,
+    backgroundPluginRepos,
+    otherRepos,
+  } = allRepos.reduce(
+    (acc: RepoSet, repo: Repo) => {
+      if (commonRepoNames.includes(repo.name)) {
+        acc.commonRepos.push(repo);
+      } else if (foundationRepoNames.includes(repo.name)) {
+        acc.foundationRepos.push(repo);
+      } else if (repo.name.startsWith("oscd-menu-")) {
+        acc.menuPluginRepos.push(repo);
+      } else if (repo.name.startsWith("oscd-editor-")) {
+        acc.editorPluginRepos.push(repo);
+      } else if (repo.name.startsWith("oscd-background-")) {
+        acc.backgroundPluginRepos.push(repo);
+      } else {
+        acc.otherRepos.push(repo);
+      }
+      return acc;
+    },
+    {
+      commonRepos: [],
+      foundationRepos: [],
+      menuPluginRepos: [],
+      editorPluginRepos: [],
+      backgroundPluginRepos: [],
+      otherRepos: [],
     }
-    return acc;
-  }, {
-    commonRepos: [],
-    foundationRepos: [],
-    menuPluginRepos: [],
-    editorPluginRepos: [],
-    backgroundPluginRepos: [],
-    otherRepos: []
-  });
+  );
 
   let content = `# Repository Status Overview
 
+    ${generateStatusTable("Common Repositories", commonRepos)}
+    ${generateStatusTable("Foundation Repositories", foundationRepos)}
+    ${generateStatusTable("Menu Plugin Repositories", menuPluginRepos)}
+    ${generateStatusTable("Editor Plugin Repositories", editorPluginRepos)}
     ${generateStatusTable(
-      "Common Repositories",commonRepos)}
-    ${generateStatusTable(
-      "Foundation Repositories",foundationRepos)}
-    ${generateStatusTable(
-      "Menu Plugin Repositories", menuPluginRepos)}
-    ${generateStatusTable(
-      "Editor Plugin Repositories",editorPluginRepos)}
-    ${generateStatusTable(
-      "Background Plugin Repositories",backgroundPluginRepos)}
-    ${generateStatusTable("Other Repositories",otherRepos)}
+      "Background Plugin Repositories",
+      backgroundPluginRepos
+    )}
+    ${generateStatusTable("Other Repositories", otherRepos)}
 
-    \n_Respository tables last generated: ${now}_
+    \n_Repository tables last generated: ${now}_
   `;
 
   const output = template.replace("<!-- STATUS_TABLE -->", content);
