@@ -81,7 +81,6 @@ function generateStatusTable(heading: string, repos: Repo[] = []) {
 }
 
 async function main() {
-  const now = new Date().toLocaleString();
   const allRepos = await getRepos();
 
   const template = readFileSync("README.template.md", "utf-8");
@@ -131,8 +130,6 @@ async function main() {
       backgroundPluginRepos
     )}
     ${generateStatusTable("Other Repositories", otherRepos)}
-
-    \n_Repository tables last generated: ${now}_
   `;
 
   const output = template.replace("<!-- STATUS_TABLE -->", content);
