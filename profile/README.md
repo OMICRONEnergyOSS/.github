@@ -57,9 +57,6 @@ Use the [Project Board](https://github.com/orgs/OMICRONEnergyOSS/projects/2) to 
 | <a href="https://github.com/OMICRONEnergyOSS/oscd-gh-workflows" target="_blank" rel="noopener">oscd-gh-workflows 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-gh-workflows/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-gh-workflows)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-gh-workflows/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-gh-workflows)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-gh-workflows/pulls/) | ![NPM Version](https://img.shields.io/npm/v/@omicronenergy/oscd-gh-workflows)<br>[NPM 🔗](https://www.npmjs.com/package/@omicronenergy/oscd-gh-workflows?activeTab=versions) | 
 | <a href="https://github.com/OMICRONEnergyOSS/oscd-template-menu" target="_blank" rel="noopener">oscd-template-menu 🔗</a> | ![Build Status](https://img.shields.io/github/actions/workflow/status/OMICRONEnergyOSS/oscd-template-menu/test.yml?branch=main) | ![Issues](https://img.shields.io/github/issues/OMICRONEnergyOSS/oscd-template-menu)<br>[Issues 🔗](https://github.com/OMICRONEnergyOSS/oscd-template-menu/issues/) | ![Pull Requests](https://img.shields.io/github/issues-pr/OMICRONEnergyOSS/oscd-template-menu)<br>[Pull Requests 🔗](https://github.com/OMICRONEnergyOSS/oscd-template-menu/pulls/) | ![NPM Version](https://img.shields.io/npm/v/@omicronenergy/oscd-template-menu)<br>[NPM 🔗](https://www.npmjs.com/package/@omicronenergy/oscd-template-menu?activeTab=versions) | 
 
-
-    
-_Repository tables last generated: 8/21/2025, 8:37:54 AM_
   
 
 # Architecture
