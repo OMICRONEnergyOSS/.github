@@ -70,7 +70,7 @@ function generateStatusTable(heading: string, repos: Repo[] = []) {
     const buildStatus = `![Build Status](https://img.shields.io/github/actions/workflow/status/${full_name}/test.yml?branch=main)`;
     const issuesBadgeLink = `![Issues](https://img.shields.io/github/issues/${full_name})<br>[Issues 🔗](${html_url}/issues/)`;
     const pullRequests = `![Pull Requests](https://img.shields.io/github/issues-pr/${full_name})<br>[Pull Requests 🔗](${html_url}/pulls/)`;
-    const npmVersion = `![NPM Version](https://img.shields.io/npm/v/${npmName})<br>[NPM 🔗](https://www.npmjs.com/package/${npmName}?activeTab=versions)`;
+    const npmVersion = `![NPM Version](https://img.shields.io/npm/v/${npmName})<br>[NPM 🔗](https://www.npmjs.com/package/${npmName}?activeTab=versions)<br>[Releases 🔗](${html_url}/releases)`;
     // const dependabotStatus = `![Dependabot Status](https://img.shields.io/github/dependabot/status/${full_name})`;
 
     // Main summary row
