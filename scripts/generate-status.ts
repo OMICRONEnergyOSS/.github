@@ -26,7 +26,7 @@ const commonRepoNames = ["oscd-api", "oscd-editor"];
 const foundationRepoNames = [
   "oscd-shell",
   "oscd-ui",
-  "oscd-edit-dialog",
+  "oscd-scl-dialogs",
   "oscd-test-utils",
 ];
 
